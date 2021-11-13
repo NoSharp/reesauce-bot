@@ -1,7 +1,9 @@
-import { parse } from "toml"
-import { readFileSync } from "fs"
-const config = parse(readFileSync("../config.toml"))
+const { parse } = require("toml");
+const { readFileSync } = require("fs")
+const config = parse(readFileSync(`${__dirname}/../config.toml`))
 
-export function getDiscordToken(){
+function getDiscordToken(){
     return config["discord"]["token"]
 }
+
+module.exports.getDiscordToken = getDiscordToken;
