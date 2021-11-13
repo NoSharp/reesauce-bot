@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^13.3.1"
+    "@discordjs/builders": "^0.8.2",
+    "discord.js": "^13.3.1",
+    "toml": "^3.0.0"
   }
 }
