@@ -1,10 +1,21 @@
-const { Client, Intents } = require("discord.js");
-const { getDiscordToken } = require("./config");
-const { registerCommands } = require("./commands/commands.js");
+const { getDiscordToken, getDiscordClientId, getDiscordGuildId } = require("./config");
+const { REST } = require("@discordjs/rest");
+
+const { generateCommandData } = require("./commands/commands.js");
+const { Routes } = require("discord-api-types/v9");
+const { setupClient } = require("./client");
+const { sendResourceAdd } = require("./utils/embed");
 const discordToken = getDiscordToken();
 
-const client = new Client({intents: Intents.FLAGS.GUILDS});
+const commandsToRegister = generateCommandData();
 
-registerCommands();
+const restClient = new REST({version: '9'}).setToken(discordToken);
 
-client.login(discordToken);
+restClient.put(Routes.applicationGuildCommands(getDiscordClientId(), getDiscordGuildId()), {
+    body: [commandsToRegister]
+}).then((data)=>{
+    setupClient(discordToken);
+    console.log("[wee-sauce-bot] loaded.");
+}).catch((err) => console.error(err));
+
+
