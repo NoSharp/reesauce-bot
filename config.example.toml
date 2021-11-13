@@ -1,2 +1,5 @@
 [discord]
-    token = "weesaucebot"
+    token = "weesaucebot"    
+    clientId = "weesaucebotclientid"
+    channelId = "channelID for embeds."
+    guildId = "guildID"
