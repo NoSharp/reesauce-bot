@@ -3,7 +3,8 @@ name: test
 #https://stackoverflow.com/questions/62846375/perform-github-action-when-trying-to-merge-branch
 on: 
   push:
-    - master
+    branches:
+      - master
   pull_request:
     branches:
       - master
