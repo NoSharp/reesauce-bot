@@ -33,14 +33,14 @@ function registerCommand(command){
  */
 async function interactionResponse(interaction){
     
-    const name = interaction.options.getString("name");
-    const link = interaction.options.getString("link");
-    const desc = interaction.options.getString("description");
+    const name = interaction.options.getString("name") ?? "N/A";
+    const link = interaction.options.getString("link") ?? "https://google.com";
+    const desc = interaction.options.getString("description") ?? "Cool Qwerky Description";
     if( ! link.startsWith("http")){
         await interaction.reply("Cannot make this resource, the resource must have a valid URL!");
         return;
     }
-    await sendResourceAdd(interaction.options.getString("name"), interaction.options.getString("link"), interaction.options.getString("description"));
+    await sendResourceAdd(name, link, desc);
     await interaction.reply("Added Resource!");
 }
 
