@@ -2,6 +2,12 @@ const test = require("baretest")("Reesauce Bot Tests"),
     assert = require("assert"),
     fs = require("fs");
 
+
+const configPath = `${__dirname}/../config.toml`;
+if(!fs.existsSync(configPath)){
+    fs.writeFileSync(configPath, fs.readFileSync(`${__dirname}/../config.example.toml`));
+}
+
 function readFolderRecursive(dir){
     let files = fs.readdirSync(dir);
     // Traverse All folders
