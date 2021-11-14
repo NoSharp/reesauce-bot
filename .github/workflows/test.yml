@@ -22,4 +22,4 @@ jobs:
       with:
         node-version: '16'
     - run: npm install
-    - run: npx jest
+    - run: node src/test.js
