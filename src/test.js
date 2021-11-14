@@ -27,10 +27,9 @@ readFolderRecursive(`${__dirname}`);
 
 (async ()=>{
     try{
-        await test.run();
+        const res = await test.run();
+        process.exit(res ? 0 : 1);
     }catch(err){
         process.exit(1);
-    }finally{
-        process.exit();
     }
 })();
