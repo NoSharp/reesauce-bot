@@ -14,15 +14,18 @@ function registerCommand(command){
                 .addStringOption(opt =>
                     opt
                         .setName("name")
-                        .setDescription("the name of the resource"))
+                        .setDescription("the name of the resource")
+                        .setRequired(true))
                 .addStringOption(opt =>
                     opt
                         .setName("link")
-                        .setDescription("the link of the resource"))
+                        .setDescription("the link of the resource")
+                        .setRequired(true))
                 .addStringOption(opt =>
                     opt
                         .setName("description")
-                        .setDescription("the description of the resource"))
+                        .setDescription("the description of the resource")
+                        .setRequired(true))
         );
     
 }
