@@ -21,8 +21,4 @@ module.exports = (test, assert) =>{
     test("Add command has correct amount of arguments.", () => {
         assert.strictEqual(option.options.length, 3);
     });
-
-    test("This test should fail!", ()=>{
-        assert.strictEqual(1, 2);
-    })
 }
